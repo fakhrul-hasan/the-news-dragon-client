@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../../assets/logo.png";
 import moment from "moment";
-import { Button, Container, Form, Nav, Navbar } from "react-bootstrap";
+import { Button} from "react-bootstrap";
 import Marquee from "react-fast-marquee";
 
 const Header = () => {
@@ -21,24 +21,6 @@ const Header = () => {
           text.
         </Marquee>
       </div>
-      <Navbar bg="light" expand="lg">
-        <Container fluid>
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
-            <Nav
-              className="mx-auto my-2 my-lg-0"
-              style={{ maxHeight: "100px" }}
-              navbarScroll
-            >
-              <Nav.Link href="#action1">Home</Nav.Link>
-              <Nav.Link href="#action2">About</Nav.Link>
-              <Nav.Link href="#">Career</Nav.Link>
-            </Nav>
-            <p>Profile</p>
-              <Button variant="dark">Dark</Button>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
     </div>
   );
 };

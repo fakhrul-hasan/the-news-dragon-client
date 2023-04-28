@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import EditorsInsight from '../../Home/EditorsInsight/EditorsInsight';
 
 const LeftNav = () => {
     const [categories, setCategories] = useState();
@@ -15,10 +16,11 @@ const LeftNav = () => {
             <div className='mt-3 ps-3'>
                 {
                     categories?.map(category=> <p key={category.id}>
-                        <Link to={`category/${category.id}`} className='text-decoration-none text-black'>{category.name}</Link>
+                        <Link to={`/category/${category.id}`} className='text-decoration-none text-black'>{category.name}</Link>
                     </p>)
                 }
             </div>
+            <EditorsInsight className='d-flex'></EditorsInsight>
         </div>
     );
 };
