@@ -1,9 +1,16 @@
 import moment from "moment";
 import React from "react";
 import { Card, Image } from "react-bootstrap";
-import { FaEye, FaRegBookmark, FaRegStar, FaShareAlt, FaStar } from "react-icons/fa";
-import Rating from "react-rating";
+import {
+  FaEye,
+  FaRegBookmark,
+  FaRegStar,
+  FaShareAlt,
+  FaStar,
+} from "react-icons/fa";
+import { Rating } from "@smastrom/react-rating";
 import { Link } from "react-router-dom";
+import "@smastrom/react-rating/style.css";
 
 const NewsCard = ({ news }) => {
   const { title, details, _id, author, image_url, rating, total_view } = news;
@@ -15,7 +22,9 @@ const NewsCard = ({ news }) => {
           <div className="ps-2 flex-grow-1 ">
             <p className="mb-0 fw-bold">{author.name}</p>
             <p>
-              <small>{moment(author.published_date).format('YYYY/MM/DD')}</small>
+              <small>
+                {moment(author.published_date).format("YYYY/MM/DD")}
+              </small>
             </p>
           </div>
           <div>
@@ -38,20 +47,14 @@ const NewsCard = ({ news }) => {
           </Card.Text>
         </Card.Body>
         <Card.Footer className="text-muted d-flex align-items-center">
-          <div className="flex-grow-1">
-          <Rating className="me-1"
-            placeholderRating={rating.number}
-            emptySymbol={
-              <FaRegStar className="text-warning"></FaRegStar>
-            }
-            placeholderSymbol={
-              <FaStar className="text-warning"></FaStar>
-            }
-            fullSymbol={
-              <FaStar></FaStar>
-            } readonly
-          />
-        {rating.number}
+          <div className="flex-grow-1 d-flex">
+            <Rating
+              className="me-1"
+              style={{ maxWidth: 120 }}
+              value={rating.number}
+              readOnly
+            />
+            {rating.number}
           </div>
           <div>
             <FaEye></FaEye> {total_view}
